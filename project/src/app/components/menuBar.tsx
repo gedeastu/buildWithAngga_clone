@@ -1,11 +1,17 @@
 "use client";
 import React from "react";
 import useToggle from "../hooks/toggleHook";
-export default function MenuBar({
+import { type } from "os";
+interface MenuBarProps {
+  DailyLink: string;
+  ResourcesLink: string;
+  ForCorporateLink: string;
+}
+const MenuBar: React.FC<MenuBarProps> = ({
   DailyLink,
   ResourcesLink,
   ForCorporateLink,
-}) {
+}) => {
   const { value, toggle } = useToggle();
   {
     value
@@ -83,4 +89,5 @@ export default function MenuBar({
       </div>
     </>
   );
-}
+};
+export default MenuBar;
