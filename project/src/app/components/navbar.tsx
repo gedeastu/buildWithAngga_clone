@@ -27,15 +27,34 @@ export default async function Navbar() {
   return (
     <>
       <nav className="grid grid-cols-3 place-content-between w-full place-items-center py-8">
-        <MenuBar>
-          {linksDaily.map((link, index) => (
+        <MenuBar
+          DailyLink={linksDaily.map((link, index) => (
             <>
               <Link key={link.id} href={link.href}>
+                <Image
+                  src={link.img}
+                  width={50}
+                  height={50}
+                  alt={link.nameLink}
+                ></Image>
                 <h1>{link.nameLink}</h1>
               </Link>
             </>
           ))}
-        </MenuBar>
+          ResourcesLink={linksDaily.map((link, index) => (
+            <>
+              <Link key={link.id} href={link.href}>
+                <Image
+                  src={link.img}
+                  width={50}
+                  height={50}
+                  alt={link.nameLink}
+                ></Image>
+                <h1>{link.nameLink}</h1>
+              </Link>
+            </>
+          ))}
+        />
         <Link href={`/`}>
           <Image
             src={`buildwithangga_logo.svg`}

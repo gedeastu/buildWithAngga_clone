@@ -2,19 +2,19 @@
   "linkDaily": [
     {
       "id": 1,
-      "img": "fintech.png",
+      "img": "flashSale.svg",
       "href": "../flashSale",
       "nameLink": "Flash Sale"
     },
     {
       "id": 2,
-      "img": "fintech.png",
+      "img": "kelasOnline.svg",
       "href": "../kelasOnline",
       "nameLink": "Kelas Online"
     },
     {
       "id": 3,
-      "img": "fintech.png",
+      "img": "bootcamp.svg",
       "href": "../bootcamp",
       "nameLink": "Bootcamp"
     }

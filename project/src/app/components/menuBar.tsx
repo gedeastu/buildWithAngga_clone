@@ -1,7 +1,11 @@
 "use client";
 import React from "react";
 import useToggle from "../hooks/toggleHook";
-export default function MenuBar({ children, keys, links }) {
+export default function MenuBar({
+  DailyLink,
+  ResourcesLink,
+  ForCorporateLink,
+}) {
   const { value, toggle } = useToggle();
   {
     value
@@ -29,8 +33,37 @@ export default function MenuBar({ children, keys, links }) {
               <button onClick={toggle} className="absolute right-10 top-12">
                 close
               </button>
-              <div onClick={toggle} className="cursor-pointer">
-                {children}
+              <div id="links">
+                <div id="daily">
+                  <h1>Daily</h1>
+                  <div
+                    onClick={toggle}
+                    className="cursor-pointer flex flex-row gap-10"
+                    id="daily"
+                  >
+                    {DailyLink}
+                  </div>
+                </div>
+                <div id="resources">
+                  <h1>Resources</h1>
+                  <div
+                    onClick={toggle}
+                    id="resouces"
+                    className="cursor-pointer flex flex-row"
+                  >
+                    {ResourcesLink}
+                  </div>
+                </div>
+                <div id="forCorporate">
+                  <h1>For Corporate</h1>
+                  <div
+                    onClick={toggle}
+                    id="resouces"
+                    className="cursor-pointer flex flex-row"
+                  >
+                    {ForCorporateLink}
+                  </div>
+                </div>
               </div>
             </div>
             <div
