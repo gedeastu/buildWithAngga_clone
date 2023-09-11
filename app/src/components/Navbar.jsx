@@ -1,7 +1,8 @@
 import React from 'react'
 import Promo from './Promo'
-import { NavLink } from 'react-router-dom'
 import Drawer from './Drawer'
+import Logo from './Logo'
+import LoginBtn from './LoginBtn'
 import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
@@ -39,10 +40,10 @@ const Navbar = () => {
     />
 
     {/* Navbar Section */}
-    <div id="navbar">
-      <Drawer 
-      
-      />
+    <div id="navbar" className='grid grid-cols-3 place-content-between place-items-center gap-40 px-10 py-5 w-screen'>
+      <Drawer />
+      <Logo />
+      <LoginBtn />
     </div>
     </nav>
     </>
