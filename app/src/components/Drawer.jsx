@@ -12,7 +12,7 @@ const Drawer = ({className}) => {
   const dataList = useLoaderData()
   // console.log(dataList)
   const {isOn, toggleClick} = useConditionReducer();
-  console.log(isOn)
+//   console.log(isOn)
   {isOn ? (document.body.style.overflow = 'hidden'):(document.body.style.overflow = 'auto')}
   return (
     <>
@@ -34,23 +34,20 @@ const Drawer = ({className}) => {
         <div className='bg-white transition-all overflow-auto duration-500 w-screen opacity-100 h-[30rem] fixed z-50 shadow-xl bottom-0 left-0 sm:h-0 sm:-bottom-[99rem] sm:opacity-0 sm:-z-[60]'>
             <button onClick={toggleClick}>close</button>
             {dataList.map((data)=>(
-                <>
                 <div key={data.id} className={{}}>
                     {data.titleDaily && (
                     <div id='Daily'>
                         <h1>
                         {data.titleDaily}
                         </h1>
-                        <div>
                         {data.dataDaily.map((item)=>(
-                            <>
-                            <Link to={item.url} key={item.id}>
+                            <div key={item.id}>
+                            <Link to={item.url}>
                                 <h1>{item.destination}</h1>
                                 <img src={item.icon}/>
-                            </Link>
-                            </>
+                            </Link> 
+                            </div>
                         ))}
-                        </div>
                     </div>
                     )}
 
@@ -61,12 +58,12 @@ const Drawer = ({className}) => {
                         </h1>
                         <div>
                         {data.dataResources.map((item)=>(
-                            <>
-                            <Link to={item.url} key={item.id}>
+                            <div key={item.id}>
+                            <Link to={item.url}>
                                 <h1>{item.destination}</h1>
                                 <img src={item.icon}/>
-                            </Link>
-                            </>
+                            </Link> 
+                            </div>
                         ))}
                         </div>
                     </div>
@@ -79,18 +76,17 @@ const Drawer = ({className}) => {
                         </h1>
                         <div>
                         {data.dataForCorporate.map((item)=>(
-                            <>
-                            <Link to={item.url} key={item.id}>
+                            <div key={item.id}>
+                            <Link to={item.url}>
                                 <h1>{item.destination}</h1>
                                 <img src={item.icon}/>
-                            </Link>
-                            </>
+                            </Link> 
+                            </div>
                         ))}
                         </div>
                     </div>
                     )}
                 </div>
-                </>
             ))}
         </div>
         <div className='bg-black/50 transition-all w-screen h-screen opacity-100 fixed z-40 shadow-xl bottom-0 left-0 sm-z-[60] sm:opacity-0'></div>
