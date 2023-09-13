@@ -1,16 +1,18 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 import useConditionReducer from '../hook/conditionHooks'
+import { useLoaderData,Link } from 'react-router-dom';
 
 export const DataDrawerMobile = async () => {
-    const res = await fetch(import.meta.env.DATA_DRAWER_MOBILE)
-    console.log(res);
+    const res = await fetch(import.meta.env.VITE_APP_DATA_DRAWER_MOBILE)
+    // console.log(res);
     return res.json()
 }
 const Drawer = ({className}) => {
+  const dataList = useLoaderData()
+  // console.log(dataList)
   const {isOn, toggleClick} = useConditionReducer();
   console.log(isOn)
-
   {isOn ? (document.body.style.overflow = 'hidden'):(document.body.style.overflow = 'auto')}
   return (
     <>
@@ -29,9 +31,67 @@ const Drawer = ({className}) => {
     <div className='absolute left-40 top-96'>
     {isOn ? (
         <>
-        <div className='bg-white transition-all duration-500 w-screen opacity-100 h-[30rem] fixed z-50 shadow-xl bottom-0 left-0 sm:h-0 sm:-bottom-[99rem] sm:opacity-0 sm:-z-[60]'>
+        <div className='bg-white transition-all overflow-auto duration-500 w-screen opacity-100 h-[30rem] fixed z-50 shadow-xl bottom-0 left-0 sm:h-0 sm:-bottom-[99rem] sm:opacity-0 sm:-z-[60]'>
             <button onClick={toggleClick}>close</button>
+            {dataList.map((data)=>(
+                <>
+                <div key={data.id} className={{}}>
+                    {data.titleDaily && (
+                    <div id='Daily'>
+                        <h1>
+                        {data.titleDaily}
+                        </h1>
+                        <div>
+                        {data.dataDaily.map((item)=>(
+                            <>
+                            <Link to={item.url} key={item.id}>
+                                <h1>{item.destination}</h1>
+                                <img src={item.icon}/>
+                            </Link>
+                            </>
+                        ))}
+                        </div>
+                    </div>
+                    )}
 
+                    {data.titleResources && (
+                    <div id='Daily'>
+                        <h1>
+                        {data.titleResources}
+                        </h1>
+                        <div>
+                        {data.dataResources.map((item)=>(
+                            <>
+                            <Link to={item.url} key={item.id}>
+                                <h1>{item.destination}</h1>
+                                <img src={item.icon}/>
+                            </Link>
+                            </>
+                        ))}
+                        </div>
+                    </div>
+                    )}
+
+                    {data.titleForCorporate && (
+                    <div id='Daily'>
+                        <h1>
+                        {data.titleForCorporate}
+                        </h1>
+                        <div>
+                        {data.dataForCorporate.map((item)=>(
+                            <>
+                            <Link to={item.url} key={item.id}>
+                                <h1>{item.destination}</h1>
+                                <img src={item.icon}/>
+                            </Link>
+                            </>
+                        ))}
+                        </div>
+                    </div>
+                    )}
+                </div>
+                </>
+            ))}
         </div>
         <div className='bg-black/50 transition-all w-screen h-screen opacity-100 fixed z-40 shadow-xl bottom-0 left-0 sm-z-[60] sm:opacity-0'></div>
         </>
