@@ -21,7 +21,7 @@ const Navbar = () => {
       <p className='text-center text-white text-lg font-semibold'>
       Kelas Premium Rp 99.000 akses selamanya.
       <br />
-      Gunakan kode promo KARIRBARU ketika checkout🤩
+      Gunakan kode promo KARIRBARU ketika checkout 🤩
       </p>
       </article>
       </div>

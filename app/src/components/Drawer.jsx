@@ -1,6 +1,12 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 import useConditionReducer from '../hook/conditionHooks'
+
+export const DataDrawerMobile = async () => {
+    const res = await fetch(import.meta.env.DATA_DRAWER_MOBILE)
+    console.log(res);
+    return res.json()
+}
 const Drawer = ({className}) => {
   const {isOn, toggleClick} = useConditionReducer();
   console.log(isOn)
@@ -25,6 +31,7 @@ const Drawer = ({className}) => {
         <>
         <div className='bg-white transition-all duration-500 w-screen opacity-100 h-[30rem] fixed z-50 shadow-xl bottom-0 left-0 sm:h-0 sm:-bottom-[99rem] sm:opacity-0 sm:-z-[60]'>
             <button onClick={toggleClick}>close</button>
+
         </div>
         <div className='bg-black/50 transition-all w-screen h-screen opacity-100 fixed z-40 shadow-xl bottom-0 left-0 sm-z-[60] sm:opacity-0'></div>
         </>

@@ -13,7 +13,7 @@ import {
 } 
 from 'react-router-dom'
 
-
+import { DataDrawerMobile } from './components/Drawer'
 // const loadComponent = (urlName) => {
 //   return import(`./${urlName}`).then((module) => module.default);
 // };
@@ -21,7 +21,7 @@ const Promo = lazy(()=>import('./pages/Promo'))
 const Home = lazy(()=>import('./pages/Home'))
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<RootLayout/>}>
+    <Route path='/' element={<RootLayout/>} loader={DataDrawerMobile}>
     <Route path='/' element={<HomeLayout/>}>
       <Route index path='/' element={<Home/>}/>
     </Route>
