@@ -1,8 +1,8 @@
 import './App.css'
 import { Suspense, lazy } from 'react'
-import RootLayout from './layouts/RootLayout'
-import HomeLayout from './layouts/HomeLayout'
-
+// import RootLayout from './layouts/RootLayout'
+// import HomeLayout from './layouts/HomeLayout'
+// import RegisterLayout from './layouts/RegisterLayout'
 // import Promo from './pages/Promo'
 // import Home from './pages/Home'
 import {
@@ -17,6 +17,9 @@ import { DataDrawerMobile } from './components/Drawer'
 // const loadComponent = (urlName) => {
 //   return import(`./${urlName}`).then((module) => module.default);
 // };
+const RootLayout = lazy(()=>import('./layouts/RootLayout'))
+const HomeLayout = lazy(()=>import('./layouts/HomeLayout'))
+const RegisterLayout = lazy(()=>import('./layouts/RegisterLayout'))
 const Promo = lazy(()=>import('./pages/Promo'))
 const Home = lazy(()=>import('./pages/Home'))
 const router = createBrowserRouter(
@@ -26,6 +29,10 @@ const router = createBrowserRouter(
       <Route index path='/' element={<Home/>}/>
     </Route>
     <Route path='/promo' element={<Promo/>}/>
+    <Route path='/register' element={<RegisterLayout/>}>
+        <Route path='signIn' element={{}}/>
+        <Route path='signUp' element={{}}/>
+    </Route>
   </Route>
   )
 )

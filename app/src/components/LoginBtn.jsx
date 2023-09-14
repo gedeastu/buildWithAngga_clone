@@ -5,7 +5,7 @@ const LoginBtn = () => {
   return (
     <>
     <motion.div>
-    <Link to={{}} className='bg-[#e5e9f2] px-5 py-1.5 font-bold rounded-full'>Masuk</Link>
+    <Link to={`/register`} className='bg-[#e5e9f2] px-5 py-1.5 font-bold rounded-full'>Masuk</Link>
     </motion.div>
     </>
   )

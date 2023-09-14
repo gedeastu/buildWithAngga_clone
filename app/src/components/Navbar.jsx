@@ -41,7 +41,7 @@ const Navbar = () => {
     />
 
     {/* Navbar Section */}
-    <motion.div animate={{paddingRight:35, paddingLeft:35}} id="navbar" className='grid grid-cols-3 place-content-between place-items-center gap-40 py-5 w-screen'>
+    <motion.div animate={{paddingRight:40,paddingLeft:30}} initial={{paddingRight:0, paddingLeft:0}} id="navbar" className='grid grid-cols-3 place-content-between place-items-center gap-40 py-5 w-screen'>
       <Drawer />
       <Logo />
       <LoginBtn />
