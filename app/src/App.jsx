@@ -14,7 +14,6 @@ import { DataDrawerMobile } from './components/Drawer'
 // };
 const RootLayout = lazy(()=>import('./layouts/RootLayout'))
 const HomeLayout = lazy(()=>import('./layouts/HomeLayout'))
-const RegisterLayout = lazy(()=>import('./layouts/RegisterLayout'))
 const Promo = lazy(()=>import('./pages/Promo'))
 const Home = lazy(()=>import('./pages/Home'))
 const SignIn = lazy(()=>import('./pages/SignIn'))
@@ -28,10 +27,8 @@ const router = createBrowserRouter(
 
     <Route path='promo' element={<Promo/>}/>
 
-    <Route path='register' element={<RegisterLayout/>}>
-        <Route path='signIn' element={<SignIn/>}/>
-        <Route path='signUp' element={<SignUp/>}/>
-    </Route>
+    <Route index path='signIn' element={<SignIn/>}/>
+    <Route path='signUp' element={<SignUp/>}/>
   </Route>
   )
 )

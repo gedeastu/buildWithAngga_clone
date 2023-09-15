@@ -9,11 +9,11 @@ const conditionReducer  = (state,action) => {
     }
 }
 const useConditionReducer = ()=>{
-    const[isOn,dispatch] = useReducer(conditionReducer,false);
+    const[isClick,dispatch] = useReducer(conditionReducer,false);
 
     const toggleClick = () => {
         dispatch({type:'condition'})
     };
-    return {isOn, toggleClick};
+    return {isClick, toggleClick};
 }
 export default useConditionReducer;

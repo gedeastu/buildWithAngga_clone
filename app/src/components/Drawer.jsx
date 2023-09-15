@@ -8,12 +8,13 @@ export const DataDrawerMobile = async () => {
     // console.log(res);
     return res.json()
 }
+
 const Drawer = ({className}) => {
   const dataList = useLoaderData()
   // console.log(dataList)
-  const {isOn, toggleClick} = useConditionReducer();
+  const {isClick, toggleClick} = useConditionReducer();
 //   console.log(isOn)
-  {isOn ? (document.body.style.overflow = 'hidden'):(document.body.style.overflow = 'auto')}
+  {isClick ? (document.body.style.overflow = 'hidden'):(document.body.style.overflow = 'auto')}
   return (
     <>
     <motion.button onClick={toggleClick} className='bg-[#e5e9f2] h-max py-2 px-3 rounded-xl'>
@@ -29,7 +30,7 @@ const Drawer = ({className}) => {
     </svg>
     </motion.button>
     <div className='absolute left-40 top-96'>
-    {isOn ? (
+    {isClick ? (
         <>
         <div className='bg-white transition-all overflow-auto duration-500 w-screen opacity-100 h-[30rem] fixed z-50 shadow-xl bottom-0 left-0 sm:h-0 sm:-bottom-[99rem] sm:opacity-0 sm:-z-[60]'>
             <button onClick={toggleClick}>close</button>
