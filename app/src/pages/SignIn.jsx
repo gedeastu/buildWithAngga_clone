@@ -1,5 +1,7 @@
 import React from 'react'
 import {useForm} from 'react-hook-form'
+import { useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 const SignIn = () => {
   const form = useForm();
   const {register}= form
@@ -13,7 +15,7 @@ const SignIn = () => {
     <input type="email" />
     <label htmlFor="Password">Password</label>
     <input type="password" />
-
+    <Link to={'/signUp'}>Sign Up</Link>
     <button>Submit</button>
     </form>
     </div>
