@@ -7,7 +7,6 @@ import {
   RouterProvider
 } 
 from 'react-router-dom'
-
 import { DataDrawerMobile } from './components/Drawer'
 // const loadComponent = (urlName) => {
 //   return import(`./${urlName}`).then((module) => module.default);

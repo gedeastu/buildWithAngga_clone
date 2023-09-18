@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {motion} from 'framer-motion'
-import useConditionReducer from '../hook/conditionHooks'
+import { useStateGlobal } from '../hook/globalState'
+// import useConditionReducer from '../hook/conditionHooks'
 const LoginBtn = () => {
-  const {isClick, toggleClick} = useConditionReducer();
+//   const {isClick, toggleClick} = useConditionReducer();
+//   useEffect(() => {
+//     localStorage.setItem("isClick",isClick)
+//   },[isClick])
+
   return (
     <>
     <motion.div>
-    <Link onClick={toggleClick} to={`/signIn`} className='bg-[#e5e9f2] w-44 h-20 font-bold rounded-full'>
-    <h1>{isClick ? ('Daftar'):('Masuk')}</h1>
+    <Link to={'/signIn'} className='bg-[#032980] w-60 h-20 font-bold rounded-full'>
+    <h1 className=''>Masuk</h1>
     </Link>
     </motion.div>
     </>
