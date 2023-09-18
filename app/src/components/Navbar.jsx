@@ -26,7 +26,7 @@ const Navbar = () => {
     <>
     <nav>
     <motion.div animate={{paddingRight:40,paddingLeft:30}} initial={{paddingRight:0, paddingLeft:0}} id="navbar" className={
-    `grid grid-cols-3 place-content-between place-items-center gap-40 py-5 w-screen`
+    `grid grid-cols-3 place-content-between place-items-center gap-40 py-7 w-screen`
     }>
         <Drawer />
         <Logo />

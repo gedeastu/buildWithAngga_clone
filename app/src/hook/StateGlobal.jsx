@@ -1,26 +1,22 @@
-import React from 'react'
-import { createContext,useState,useEffect, useContext } from "react";
+import React, {createContext,useContext,useEffect,useState} from 'react';
 
-const TheContext = createContext();
-export const StateProvider = ({children,value}) => {
-    const [state, setState] = useState(()=>{
-    const localStorageValue = localStorage.getItem('state');
-    return localStorageValue ? JSON.parse(localStorageValue) : {value};
+const Context = createContext();
+
+export const thisContextProvider = ({children}) => {
+    const [data,setData] = useState(()=>{
+        const storedData = localStorage.getItem('data');
+        return storedData ? JSON.parse(storedData) : {textContent:'Masuk',url:'/signIn'};
     });
     useEffect(()=>{
-        localStorage.setItem(state, JSON.stringify(state))
-    },[state])
+        localStorage.setItem("data",JSON.stringify(data));
+    },[data])
     return(
-        <TheContext.Provider value={{state,setState,value}}>
+        <Context.Provider value={{data,setData}}>
             {children}
-        </TheContext.Provider>
+        </Context.Provider>
     )
 }
-export const useStateContext = () => {
-    const context = useContext(TheContext)
-    if(context === undefined){
-        throw new Error("GlobalStateContext was used of the GlobalStateProvider")
-    }else{
-        return context
-    }
-}
+
+ export const useThisContext = () => {
+    return useContext(Context);
+ }
