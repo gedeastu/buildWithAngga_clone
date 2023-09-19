@@ -1,22 +1,23 @@
-import React, {createContext,useContext,useEffect,useState} from 'react';
+import React, {createContext,useState,useContext} from 'react';
+import { set } from 'react-hook-form';
 
-const Context = createContext();
-
-export const thisContextProvider = ({children}) => {
-    const [data,setData] = useState(()=>{
-        const storedData = localStorage.getItem('data');
-        return storedData ? JSON.parse(storedData) : {textContent:'Masuk',url:'/signIn'};
-    });
-    useEffect(()=>{
-        localStorage.setItem("data",JSON.stringify(data));
-    },[data])
+export const ThemeContext = createContext(null);
+const ThemeContextProvider = ({children}) =>{
+    const [theme,setTheme] = useState("light");
     return(
-        <Context.Provider value={{data,setData}}>
+        <ThemeContextProvider value={{theme,setTheme}}>
             {children}
-        </Context.Provider>
+        </ThemeContextProvider>
     )
 }
+export default ThemeContextProvider;
 
- export const useThisContext = () => {
-    return useContext(Context);
- }
+export function useThemeContext(){
+    const context = useContext(ThemeContext)
+    if (context === undefined){
+        throw new Error("Theme context should be used within ThemeContextProvider")
+    }
+    else{
+        return context;
+    }
+}
